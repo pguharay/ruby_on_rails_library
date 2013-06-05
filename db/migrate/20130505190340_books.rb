@@ -2,10 +2,15 @@ class Books < ActiveRecord::Migration
   def up
   	create_table :books do |t|
     	t.string     :title, :limit => 32, :null => false
-	    t.float      :price
-	    t.integer    :subject_id
-	    t.text       :description
-	    t.timestamp  :created_at
+      t.float      :price
+      t.integer    :subject_id
+      t.integer    :author_id
+      t.integer    :publisher_id
+      t.string     :isbn
+      t.string     :publish_date
+      t.text       :description
+      t.integer    :rating 
+      t.timestamp  :created_at
     end
 
   end
@@ -19,7 +24,12 @@ class Books < ActiveRecord::Migration
     	t.string     :title, :limit => 32, :null => false
 	    t.float      :price
 	    t.integer    :subject_id
+      t.integer    :author_id
+      t.integer    :publisher_id
+      t.string     :isbn
+      t.string     :publish_date
 	    t.text       :description
+      t.integer    :rating 
 	    t.timestamp  :created_at
     end
   end 

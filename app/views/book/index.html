@@ -1,29 +1,29 @@
 <html>
 	<head>
-		<script type="text/javascript" src="/SlickGrid/lib/jquery-1.7.min.js"></script>	
-		<script type="text/javascript" src="/SlickGrid/lib/jquery-ui-1.8.16.custom.min.js"></script>	
-		<script type="text/javascript" src="/SlickGrid/lib/jquery.sparkline.min.js"></script>	
-		<script type="text/javascript" src="/SlickGrid/lib/jquery.jsonp-1.1.0.min.js"></script>
-		<script type="text/javascript" src="/SlickGrid/lib/jquery.event.drag-2.2.js"></script>	
-		<script type="text/javascript" src="/SlickGrid/lib/jquery.event.drop-2.2.js"></script>	
-		<script type="text/javascript" src="/SlickGrid/slick.core.js"></script>	
-		<script type="text/javascript" src="/SlickGrid/slick.formatters.js"></script>	
-		<script type="text/javascript" src="/SlickGrid/slick.dataview.js"></script>	
-		<script type="text/javascript" src="/SlickGrid/slick.editors.js"></script>	
-		<script type="text/javascript" src="/SlickGrid/slick.grid.js"></script>	
-		<script type="text/javascript" src="/SlickGrid/slick.groupitemmetadataprovider.js"></script>	
-		<script type="text/javascript" src="/SlickGrid/slick.remotemodel.js"></script>	
-		<script type="text/javascript" src="/SlickGrid/plugins/slick.rowselectionmodel.js"></script>
+		<script type="text/javascript" src="SlickGrid/lib/jquery-1.7.min.js"></script>	
+		<script type="text/javascript" src="SlickGrid/lib/jquery-ui-1.8.16.custom.min.js"></script>	
+		<script type="text/javascript" src="SlickGrid/lib/jquery.sparkline.min.js"></script>	
+		<script type="text/javascript" src="SlickGrid/lib/jquery.jsonp-1.1.0.min.js"></script>
+		<script type="text/javascript" src="SlickGrid/lib/jquery.event.drag-2.2.js"></script>	
+		<script type="text/javascript" src="SlickGrid/lib/jquery.event.drop-2.2.js"></script>	
+		<script type="text/javascript" src="SlickGrid/slick.core.js"></script>	
+		<script type="text/javascript" src="SlickGrid/slick.formatters.js"></script>	
+		<script type="text/javascript" src="SlickGrid/slick.dataview.js"></script>	
+		<script type="text/javascript" src="SlickGrid/slick.editors.js"></script>	
+		<script type="text/javascript" src="SlickGrid/slick.grid.js"></script>	
+		<script type="text/javascript" src="SlickGrid/slick.groupitemmetadataprovider.js"></script>	
+		<script type="text/javascript" src="SlickGrid/slick.remotemodel.js"></script>	
+		<script type="text/javascript" src="SlickGrid/plugins/slick.rowselectionmodel.js"></script>
 		
-		<script type="text/javascript" src="/SlickGrid/controls/slick.columnpicker.js"></script>	
-		<script type="text/javascript" src="/SlickGrid/controls/slick.pager.js"></script>	
+		<script type="text/javascript" src="SlickGrid/controls/slick.columnpicker.js"></script>	
+		<script type="text/javascript" src="SlickGrid/controls/slick.pager.js"></script>	
 		
-		<link rel="stylesheet" type="text/css" href="/SlickGrid/slick.grid.css" />
-		<link rel="stylesheet" type="text/css" href="/SlickGrid/examples/examples.css" />
+		<link rel="stylesheet" type="text/css" href="SlickGrid/slick.grid.css" />
+		<link rel="stylesheet" type="text/css" href="SlickGrid/examples/examples.css" />
 		
-		<link rel="stylesheet" type="text/css" href="/SlickGrid/controls/slick.pager.css" />
-		<link rel="stylesheet" type="text/css" href="/SlickGrid/controls/slick.columnpicker.css" />
-		<link rel="stylesheet" type="text/css" href="/SlickGrid/css/smoothness/jquery-ui-1.8.16.custom.css" />
+		<link rel="stylesheet" type="text/css" href="SlickGrid/controls/slick.pager.css" />
+		<link rel="stylesheet" type="text/css" href="SlickGrid/controls/slick.columnpicker.css" />
+		<link rel="stylesheet" type="text/css" href="SlickGrid/css/smoothness/jquery-ui-1.8.16.custom.css" />
 		
 		<style>
 		    .cell-title {
@@ -61,7 +61,7 @@
 			<div class="grid-header" width="100%">
 				<label>Library Catalog</label>
 			</div>
-			<div id="datagrid" style="width:100%;border: 1px solid gray"></div>
+			<div id="datagrid" style="width:100%;height:85%;border: 1px solid gray"></div>
 			<div id="pager" style="width:100%;height:20px;"></div>
 		</div>
 	</div>
@@ -71,11 +71,8 @@
 		<button id="Mybtn2">Remove Book</button>
 		<button id="Mybtn3">Save Changes</button>
 	</div>		
-    <% if @books.blank? %>
-		<p>There are not any books currently in the system.</p>
-	<% else %>
 
-    <!-- Prepare the datagrid view below -->
+		<!-- Prepare the datagrid view below -->
 		<script>
 			var data = [];
 			var sortcol = "title";
@@ -123,27 +120,24 @@
 			          $(e.target).addClass("ui-state-hover")
 			        }).mouseout(function (e) {
 			          $(e.target).removeClass("ui-state-hover")
-			        });			
+			        });
 
 			$(function()
-			{	
-					$('#datagrid').css("height",(screen.height*0.6));	
-					var i=0;
-						<% @books.each do |c| %>
+			{				
+					for(var i=0;i<100;i++)
+					{
 						var d = (data[i] = {});
-						d["id"] = <%=c.id%>;
-						d["title"] = '<%=c.title%>';
-						d["subject"] = '<%=c.subject.name%>';
-						d["author"] = '<%=c.author.name%>';
-						d["price"] = '<%=c.price%>';
-						d["isbn"] = '<%=c.isbn%>'; 
-						d["publisher"] = '<%=c.publisher.name%>';
-						d["publish_date"] = '<%=c.publish_date%>';
-						d["popularity"] = '<%=c.rating%>';
-					    i++;
-					    <% end %>
-					    
-					
+						d["id"] = i;
+						d["title"] = 'Book-' + i;
+						d["subject"] = 'Subject-' + i;
+						d["author"] = 'Author-' + i
+						d["price"] = 100 + i;
+						d["isbn"] = 'xxx-xxx-' +i; 
+						d["publisher"] = 'Publisher' + i;
+						d["publish_date"] = Math.round(1 + Math.random() * 12) + '/' + Math.round(1 + Math.random() * 26) + '/' + Math.round(2000 + Math.random() * 10);
+						d["popularity"] = Math.round(1 + Math.random() * 100);
+					}
+
 					  dataView = new Slick.Data.DataView({ inlineFilters: true });
 					  grid = new Slick.Grid("#datagrid", dataView, columns, options);
 					  grid.setSelectionModel(new Slick.RowSelectionModel());
@@ -213,6 +207,5 @@
 			)	
 
 		</script>
-		<% end %>
 	</body>
 </html>

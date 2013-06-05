@@ -1,16 +1,8 @@
 class Subjects < ActiveRecord::Migration
   def up
   	create_table :subjects do |t|
-    	t.string :name
+    	t.string :name, :null => false
     end
-    execute <<-SQL
-    	INSERT INTO SUBJECTS(NAME) VALUES('Physics')	
-    SQL
-    #Subject.create :name => "Physics"
-    #Subject.create :name => "Mathematics"
-    #Subject.create :name => "Chemistry"
-    #Subject.create :name => "Psychology"
-    #Subject.create :name => "Geography"
   end
 
   def down
@@ -19,10 +11,7 @@ class Subjects < ActiveRecord::Migration
 
   def change
   	create_table :subjects do |t|
-    	t.string :name
+    	t.string :name, :null => false
     end
-    execute <<-SQL
-    	INSERT INTO SUBJECTS(NAME) VALUES('Physics')
-    SQL
   end 
 end

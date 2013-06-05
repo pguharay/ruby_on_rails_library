@@ -12,7 +12,7 @@ LibrarySystem::Application.routes.draw do
 
   # Sample resource route (maps HTTP verbs to controller actions automatically):
   #   resources :products
-  
+  #root :to => "book#list"
   match "/book/list" => 'book#list' 
   match "/book/new" => 'book#new' 
   match "/book/create" => 'book#create'
