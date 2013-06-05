@@ -17,9 +17,9 @@ development:
   encoding: unicode
   database: app_development
   pool: 5
-  username: library_user
-  password: library_user
-  host: localhost
+  username: hhnvucrbkkxshe
+  password: rJRPQ161XskV5qtbm8XmQIF_3R
+  host: ec2-54-235-155-40.compute-1.amazonaws.com
   port: 5432 
   # Connect on a TCP socket. Omitted by default since the client uses a
   # domain socket that doesn't need configuration. Windows does not have
@@ -44,9 +44,9 @@ test:
   encoding: unicode
   database: app_test
   pool: 5
-  username: library_user
-  password: library_user
-  host: localhost
+  username: hhnvucrbkkxshe
+  password: rJRPQ161XskV5qtbm8XmQIF_3R
+  host: ec2-54-235-155-40.compute-1.amazonaws.com
   port: 5432 
 
 production:
